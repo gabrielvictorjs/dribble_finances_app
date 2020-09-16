@@ -1,0 +1,13 @@
+include: package:flutter/analysis_options_user.yaml
+
+analyzer:
+  errors:
+    close_sinks: ignore
+
+linter:
+  rules:
+    - unnecessary_null_in_if_null_operators
+    - unnecessary_new
+    - unnecessary_const
+    - prefer_final_fields
+    - prefer_single_quotes
