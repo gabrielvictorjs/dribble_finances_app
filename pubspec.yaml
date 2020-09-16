@@ -9,6 +9,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  eva_icons_flutter: ^2.0.1
   flutter_modular: ^2.0.0+1
   flutter:
     sdk: flutter

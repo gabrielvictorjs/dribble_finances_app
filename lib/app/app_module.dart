@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'app_widget.dart';
+import 'modules/authentication/authentication_module.dart';
 import 'modules/home/home_module.dart';
 
 class AppModule extends MainModule {
@@ -10,7 +11,8 @@ class AppModule extends MainModule {
 
   @override
   List<ModularRouter> get routers => [
-        ModularRouter(Modular.initialRoute, module: HomeModule()),
+        ModularRouter(Modular.initialRoute, module: AuthenticationModule()),
+        ModularRouter('/home', module: HomeModule()),
       ];
 
   @override

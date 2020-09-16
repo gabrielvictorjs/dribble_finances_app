@@ -11,4 +11,13 @@ class AppTheme {
     scaffoldBackgroundColor: AppColors.background,
     fontFamily: 'Poppins',
   );
+
+  static List<BoxShadow> get boxShadow => [
+        BoxShadow(
+          offset: Offset(0, 25),
+          blurRadius: 40,
+          spreadRadius: -5,
+          color: AppColors.darkBlue.withOpacity(.1),
+        ),
+      ];
 }
