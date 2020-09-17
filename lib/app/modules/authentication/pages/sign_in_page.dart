@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../shared/utils/handle_keyboard.dart';
-import '../../../shared/widgets/custom_text_field_widget.dart';
+import '../../../shared/utils/keyboard_handler.dart';
+import '../widgets/custom_text_field_widget.dart';
 import '../../../shared/widgets/primary_button_widget.dart';
 import '../../../shared/widgets/svg_icon_widget.dart';
 import '../../../shared/widgets/text_button_widget.dart';
@@ -18,7 +18,7 @@ class SignInPage extends StatelessWidget {
       value: SystemUiOverlayStyle.dark,
       child: Scaffold(
         body: GestureDetector(
-          onTap: () => HandleKeyboard.hide(context),
+          onTap: () => KeyboardHandler.hide(context),
           child: SafeArea(
             child: Center(child: _buildFormContent(context)),
           ),

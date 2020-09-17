@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../theme/app_theme.dart';
+import '../../../theme/app_theme.dart';
 
 class CustomTextFieldWidget extends StatelessWidget {
   final String labelText;
@@ -9,7 +9,7 @@ class CustomTextFieldWidget extends StatelessWidget {
   final String hintText;
   final Widget suffixIcon;
 
-  const CustomTextFieldWidget({
+  CustomTextFieldWidget({
     Key key,
     @required this.labelText,
     this.inputIcon,

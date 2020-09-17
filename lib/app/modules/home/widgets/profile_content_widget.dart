@@ -52,17 +52,17 @@ class ProfileContentWidget extends StatelessWidget {
               children: [
                 TotalTransactionAmountWidget(
                   tag: 'Income',
-                  value: incomeAmount ?? 0,
+                  value: incomeAmount,
                 ),
                 verticalDivider,
                 TotalTransactionAmountWidget(
                   tag: 'Expenses',
-                  value: expenseAmount ?? 0,
+                  value: expenseAmount,
                 ),
                 verticalDivider,
                 TotalTransactionAmountWidget(
                   tag: 'Loan',
-                  value: loanAmount ?? 0,
+                  value: loanAmount,
                 ),
               ],
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../shared/utils/currency_formatter.dart';
 import '../../../theme/app_theme.dart';
 
 class TotalTransactionAmountWidget extends StatelessWidget {
@@ -17,7 +18,7 @@ class TotalTransactionAmountWidget extends StatelessWidget {
     return Column(
       children: [
         Text(
-          '\$${value.toInt()}',
+          CurrencyFormatter.format(value),
           style: AppTypography.bodyRegular.copyWith(
             color: AppColors.darkBlue,
           ),

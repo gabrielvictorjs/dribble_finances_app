@@ -37,7 +37,11 @@ class _HomePageState extends State<HomePage> {
           Column(
             children: List.generate(
               3,
-              (_) => TransactionCardWidget(),
+              (_) => TransactionCardWidget(
+                title: 'Sent',
+                description: 'Send payments to client',
+                value: 150,
+              ),
             ),
           ),
         ],

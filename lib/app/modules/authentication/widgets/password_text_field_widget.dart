@@ -1,7 +1,7 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 
-import '../../../shared/widgets/custom_text_field_widget.dart';
+import 'custom_text_field_widget.dart';
 import '../../../theme/app_theme.dart';
 
 class PasswordTextFieldWidget extends StatefulWidget {

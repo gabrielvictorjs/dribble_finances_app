@@ -9,5 +9,6 @@ linter:
     - unnecessary_null_in_if_null_operators
     - unnecessary_new
     - unnecessary_const
+    - prefer_relative_imports
     - prefer_final_fields
     - prefer_single_quotes
