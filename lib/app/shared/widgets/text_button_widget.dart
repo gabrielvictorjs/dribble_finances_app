@@ -21,7 +21,7 @@ class TextButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(4),
+      borderRadius: BorderRadius.circular(26),
       child: Material(
         color: Colors.transparent,
         child: InkWell(

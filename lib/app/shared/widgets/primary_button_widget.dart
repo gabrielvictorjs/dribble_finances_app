@@ -4,9 +4,12 @@ import '../../theme/app_theme.dart';
 
 class PrimaryButtonWidget extends StatelessWidget {
   final EdgeInsets padding;
+  final VoidCallback onTap;
+
   const PrimaryButtonWidget({
     Key key,
     this.padding,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -20,7 +23,7 @@ class PrimaryButtonWidget extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(32),
         ),
-        onPressed: () {},
+        onPressed: onTap,
         child: Text(
           'Login',
           style: AppTypography.bodyMedium.copyWith(
