@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Sent",
+    "description": "Send Payments to client",
+    "value": 150,
+    "type": "expense"
+  },
+  {
+    "title": "Receive",
+    "description": "Receiving Salary from company",
+    "value": 250,
+    "type": "income"
+  },
+  {
+    "title": "Loan",
+    "description": "Loan for the Car",
+    "value": 400,
+    "type": "loan"
+  }
+]

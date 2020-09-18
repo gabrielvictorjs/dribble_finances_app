@@ -1,22 +1,52 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../core/failures/auth_failure.dart';
+import '../../../shared/cubits/cubit/customer_cubit.dart';
 import '../../../shared/utils/keyboard_handler.dart';
-import '../widgets/custom_text_field_widget.dart';
 import '../../../shared/widgets/primary_button_widget.dart';
 import '../../../shared/widgets/svg_icon_widget.dart';
 import '../../../shared/widgets/text_button_widget.dart';
 import '../../../theme/app_theme.dart';
+import '../widgets/custom_text_field_widget.dart';
 import '../widgets/password_text_field_widget.dart';
 
-class SignInPage extends StatelessWidget {
+class SignInPage extends StatefulWidget {
+  @override
+  _SignInPageState createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
+  final _customerCubit = Modular.get<CustomerCubit>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void handleAuthenticationError(AuthFailure failure) {
+    final message = failure.map(
+      undefinedError: (_) => 'Undefined Error!',
+      userNotFound: (_) => 'User Not Found!',
+    );
+
+    _scaffoldKey.currentState.showSnackBar(
+      SnackBar(
+        content: Text(
+          message,
+          style: AppTypography.bodyMedium,
+          textAlign: TextAlign.center,
+        ),
+        backgroundColor: Colors.red,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion(
       value: SystemUiOverlayStyle.dark,
       child: Scaffold(
+        key: _scaffoldKey,
         body: GestureDetector(
           onTap: () => KeyboardHandler.hide(context),
           child: SafeArea(
@@ -62,11 +92,24 @@ class SignInPage extends StatelessWidget {
             ).copyWith(bottom: 26),
             child: PasswordTextFieldWidget(),
           ),
-          PrimaryButtonWidget(
-            onTap: () {
-              Modular.to.pushReplacementNamed('/home');
+          BlocConsumer<CustomerCubit, CustomerState>(
+            cubit: _customerCubit,
+            listener: (_, state) {
+              state.maybeWhen(
+                authenticated: (_) {
+                  Modular.to.pushReplacementNamed('/home');
+                },
+                authenticationFailure: handleAuthenticationError,
+                orElse: () {},
+              );
             },
-            padding: const EdgeInsets.symmetric(horizontal: 26),
+            builder: (_, state) {
+              return PrimaryButtonWidget(
+                busy: state is CustomerAuthenticationInProgress,
+                onTap: _customerCubit.performAuthentication,
+                padding: const EdgeInsets.symmetric(horizontal: 26),
+              );
+            },
           ),
           _buildBottomContent(),
         ],

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../../shared/widgets/transaction_card_widget.dart';
 import '../../theme/app_theme.dart';
+import 'components/customer_header.dart';
 import 'widgets/bottom_navigation/bottom_navigation_widget.dart';
-import 'widgets/header_widget.dart';
 import 'widgets/notification_bell_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: ListView(
           children: <Widget>[
-            HeaderWidget(),
+            CustomerHeader(),
             _buildOverviewSection(),
           ],
         ),

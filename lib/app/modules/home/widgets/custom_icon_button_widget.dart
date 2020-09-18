@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../theme/app_theme.dart';
+
 class CustomIconButtonWidget extends StatelessWidget {
   final Widget icon;
   final VoidCallback onTap;
@@ -18,6 +20,8 @@ class CustomIconButtonWidget extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           onTap: onTap,
+          highlightColor: Colors.transparent,
+          splashColor: AppColors.alternativeBlue,
           child: Padding(
             padding: const EdgeInsets.all(6),
             child: icon,

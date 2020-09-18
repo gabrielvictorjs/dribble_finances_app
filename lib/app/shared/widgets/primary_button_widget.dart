@@ -5,11 +5,13 @@ import '../../theme/app_theme.dart';
 class PrimaryButtonWidget extends StatelessWidget {
   final EdgeInsets padding;
   final VoidCallback onTap;
+  final bool busy;
 
   const PrimaryButtonWidget({
     Key key,
     this.padding,
     this.onTap,
+    this.busy = false,
   }) : super(key: key);
 
   @override
@@ -24,12 +26,27 @@ class PrimaryButtonWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(32),
         ),
         onPressed: onTap,
-        child: Text(
-          'Login',
-          style: AppTypography.bodyMedium.copyWith(
-            color: Colors.white,
-          ),
+        child: _buildButtonChild(),
+      ),
+    );
+  }
+
+  Widget _buildButtonChild() {
+    if (busy) {
+      return SizedBox(
+        width: 24,
+        height: 24,
+        child: CircularProgressIndicator(
+          strokeWidth: 2,
+          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
         ),
+      );
+    }
+
+    return Text(
+      'Login',
+      style: AppTypography.bodyMedium.copyWith(
+        color: Colors.white,
       ),
     );
   }

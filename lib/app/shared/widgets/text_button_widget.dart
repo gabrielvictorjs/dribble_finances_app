@@ -27,7 +27,7 @@ class TextButtonWidget extends StatelessWidget {
         child: InkWell(
           onTap: onTap,
           highlightColor: Colors.transparent,
-          splashColor: splashColor ?? AppColors.lightBlue,
+          splashColor: splashColor ?? AppColors.alternativeBlue,
           child: Container(
             padding: padding ?? EdgeInsets.zero,
             child: Text(

@@ -9,13 +9,18 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  dartz: ^0.9.1
+  freezed_annotation: ^0.11.0+1
   eva_icons_flutter: ^2.0.1
   flutter_modular: ^2.0.0+1
   flutter_svg: ^0.18.0
+  flutter_bloc: ^6.0.5
   flutter:
     sdk: flutter
 
 dev_dependencies:
+  freezed: ^0.11.6
+  build_runner: ^1.10.0
   flutter_test:
     sdk: flutter
 
@@ -23,6 +28,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/icons/
+    - assets/data/
   fonts:
     - family: Poppins
       fonts:

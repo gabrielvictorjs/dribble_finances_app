@@ -2,12 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'app_widget.dart';
+import 'core/api/api_client.dart';
 import 'modules/authentication/authentication_module.dart';
 import 'modules/home/home_module.dart';
+import 'shared/cubits/cubit/customer_cubit.dart';
+import 'shared/repositories/customer_repository.dart';
 
 class AppModule extends MainModule {
   @override
-  List<Bind> get binds => [];
+  List<Bind> get binds => [
+        Bind((i) => ApiClient()),
+        Bind((i) => CustomerRepository(i())),
+        Bind((i) => CustomerCubit(i())),
+      ];
 
   @override
   List<ModularRouter> get routers => [
