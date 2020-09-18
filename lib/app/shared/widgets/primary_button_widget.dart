@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../theme/app_theme.dart';
 
 class PrimaryButtonWidget extends StatelessWidget {
+  final String title;
   final EdgeInsets padding;
   final VoidCallback onTap;
   final bool busy;
@@ -12,7 +13,9 @@ class PrimaryButtonWidget extends StatelessWidget {
     this.padding,
     this.onTap,
     this.busy = false,
-  }) : super(key: key);
+    @required this.title,
+  })  : assert(title != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +47,7 @@ class PrimaryButtonWidget extends StatelessWidget {
     }
 
     return Text(
-      'Login',
+      title,
       style: AppTypography.bodyMedium.copyWith(
         color: Colors.white,
       ),

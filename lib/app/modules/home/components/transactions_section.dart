@@ -4,7 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../shared/models/transaction_model.dart';
 import '../../../shared/utils/transaction_types.dart';
-import '../../../shared/widgets/transaction_card_widget.dart';
+import '../../../shared/widgets/transaction_card/home_transaction_card_widget.dart';
 import '../../../theme/app_theme.dart';
 import '../cubits/transactions/transactions_cubit.dart';
 import '../widgets/notification_bell_widget.dart';
@@ -51,7 +51,7 @@ class TransactionsSection extends StatelessWidget {
         (index) {
           final transaction = transactions[index];
 
-          return TransactionCardWidget(
+          return HomeTransactionCardWidget(
             title: transaction.title,
             description: transaction.description,
             iconData: transaction.type.iconData,

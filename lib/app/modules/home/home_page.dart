@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       bottomNavigationBar: BottomNavigationWidget(
-        onItemSelected: print,
+        onItemSelected: (_) => Modular.to.pushNamed('/recent-transactions'),
         items: [
           NavigationItem(iconData: EvaIcons.homeOutline),
           NavigationItem(iconData: EvaIcons.creditCardOutline),

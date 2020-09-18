@@ -106,6 +106,7 @@ class _SignInPageState extends State<SignInPage> {
             builder: (_, state) {
               return PrimaryButtonWidget(
                 busy: state is CustomerAuthenticationInProgress,
+                title: 'Login',
                 onTap: _customerCubit.performAuthentication,
                 padding: const EdgeInsets.symmetric(horizontal: 26),
               );
