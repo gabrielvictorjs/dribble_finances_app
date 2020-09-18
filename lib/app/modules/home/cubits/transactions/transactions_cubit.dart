@@ -13,13 +13,17 @@ class TransactionsCubit extends Cubit<TransactionsState> implements Disposable {
   final TransactionRepository _repository;
   TransactionsCubit(this._repository) : super(TransactionsState.initial());
 
-  void performLoading() async {
-    emit(TransactionsState.loadInProgress());
+  Future<void> performBackgroundLoading() async {
     final result = await _repository.fetchAll();
     result.fold(
       (failure) => emit(TransactionsState.loadFailure(failure)),
       (transactions) => emit(TransactionsState.loadSuccess(transactions)),
     );
+  }
+
+  void performLoading() async {
+    emit(TransactionsState.loadInProgress());
+    performBackgroundLoading();
   }
 
   @override

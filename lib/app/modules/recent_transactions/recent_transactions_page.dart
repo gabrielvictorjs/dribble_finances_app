@@ -23,10 +23,22 @@ class RecentTransactionsPage extends StatelessWidget {
             Expanded(
               child: RecentTransactionsSection(),
             ),
-            PrimaryButtonWidget(
-              onTap: () {},
-              padding: const EdgeInsets.all(26),
-              title: 'See Details',
+            Container(
+              padding: const EdgeInsets.all(26).copyWith(top: 13),
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    offset: Offset(0, 1),
+                    blurRadius: 10,
+                    spreadRadius: 15,
+                    color: AppColors.background,
+                  ),
+                ],
+              ),
+              child: PrimaryButtonWidget(
+                onTap: () {},
+                title: 'See Details',
+              ),
             ),
           ],
         ),

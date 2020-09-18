@@ -27,11 +27,14 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: ListView(
-          children: <Widget>[
-            CustomerHeader(),
-            TransactionsSection(),
-          ],
+        child: RefreshIndicator(
+          onRefresh: _transactionsCubit.performBackgroundLoading,
+          child: ListView(
+            children: <Widget>[
+              CustomerHeader(),
+              TransactionsSection(),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationWidget(
