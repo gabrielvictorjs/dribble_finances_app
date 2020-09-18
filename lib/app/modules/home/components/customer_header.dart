@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../shared/cubits/cubit/customer_cubit.dart';
+import '../../../shared/cubits/customer/customer_cubit.dart';
 import '../../../shared/widgets/svg_icon_widget.dart';
 import '../../../theme/app_theme.dart';
 import '../widgets/custom_icon_button_widget.dart';

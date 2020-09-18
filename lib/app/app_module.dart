@@ -5,7 +5,7 @@ import 'app_widget.dart';
 import 'core/api/api_client.dart';
 import 'modules/authentication/authentication_module.dart';
 import 'modules/home/home_module.dart';
-import 'shared/cubits/cubit/customer_cubit.dart';
+import 'shared/cubits/customer/customer_cubit.dart';
 import 'shared/repositories/customer_repository.dart';
 
 class AppModule extends MainModule {

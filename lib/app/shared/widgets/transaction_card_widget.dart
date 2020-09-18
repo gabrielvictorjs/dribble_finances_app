@@ -7,12 +7,14 @@ class TransactionCardWidget extends StatelessWidget {
   final String title;
   final String description;
   final double value;
+  final IconData iconData;
 
   const TransactionCardWidget({
     Key key,
     @required this.title,
     @required this.description,
     @required this.value,
+    @required this.iconData,
   })  : assert(title != null),
         assert(description != null),
         super(key: key);
@@ -40,7 +42,7 @@ class TransactionCardWidget extends StatelessWidget {
               color: AppColors.alternativeBlue,
               borderRadius: BorderRadius.circular(13),
             ),
-            child: Icon(Icons.arrow_upward),
+            child: Icon(iconData),
           ),
           _buildTransactionInfo(),
         ],

@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../core/failures/auth_failure.dart';
-import '../../../shared/cubits/cubit/customer_cubit.dart';
+import '../../../shared/cubits/customer/customer_cubit.dart';
 import '../../../shared/utils/keyboard_handler.dart';
 import '../../../shared/widgets/primary_button_widget.dart';
 import '../../../shared/widgets/svg_icon_widget.dart';
@@ -23,7 +23,7 @@ class _SignInPageState extends State<SignInPage> {
   final _customerCubit = Modular.get<CustomerCubit>();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  void handleAuthenticationError(AuthFailure failure) {
+  void _handleAuthenticationError(AuthFailure failure) {
     final message = failure.map(
       undefinedError: (_) => 'Undefined Error!',
       userNotFound: (_) => 'User Not Found!',
@@ -96,10 +96,10 @@ class _SignInPageState extends State<SignInPage> {
             cubit: _customerCubit,
             listener: (_, state) {
               state.maybeWhen(
+                authenticationFailure: _handleAuthenticationError,
                 authenticated: (_) {
                   Modular.to.pushReplacementNamed('/home');
                 },
-                authenticationFailure: handleAuthenticationError,
                 orElse: () {},
               );
             },
