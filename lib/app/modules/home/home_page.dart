@@ -1,7 +1,9 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/widgets/transaction_card_widget.dart';
 import '../../theme/app_theme.dart';
+import 'widgets/bottom_navigation/bottom_navigation_widget.dart';
 import 'widgets/header_widget.dart';
 import 'widgets/notification_bell_widget.dart';
 
@@ -24,6 +26,16 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigationWidget(
+        onItemSelected: print,
+        items: [
+          NavigationItem(iconData: EvaIcons.homeOutline),
+          NavigationItem(iconData: EvaIcons.creditCardOutline),
+          NavigationItem(iconData: EvaIcons.plus, isPrimary: true),
+          NavigationItem(iconData: Icons.attach_money),
+          NavigationItem(iconData: EvaIcons.personOutline),
+        ],
+      ),
     );
   }
 
@@ -44,6 +56,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
+          const SizedBox(height: 26),
         ],
       ),
     );
